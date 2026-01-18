@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "manim-docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/ManimCommunity/manim"
+      ]
+    },
+    "manim-renderer": {
+      "command": "python",
+      "args": [
+        "C:/Users/Lim MW/Documents/GitHub/Hacknroll/src/manim_mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "C:/Users/Lim MW/Documents/GitHub/Hacknroll"
+      }
+    }
+  }
+}
