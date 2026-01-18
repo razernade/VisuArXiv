@@ -382,7 +382,7 @@ def process_pipeline(input_type, pdf_file, arxiv_url, use_deep):
 
 # --- Application ---
 
-with gr.Blocks(theme=theme, css=custom_css, title="Paper2Video") as app:
+with gr.Blocks(theme=theme, css=custom_css, title="VisuArXiv") as app:
     
     with gr.Column(elem_classes="container"):
         
@@ -503,9 +503,12 @@ with gr.Blocks(theme=theme, css=custom_css, title="Paper2Video") as app:
         outputs=[selected_arxiv_url]
     )
     
-    def on_generate_click(upload, url, deep):
+    def on_generate_click(upload, url_from_state, url_from_textbox, deep):
         # Heuristic: If upload is present, use it. Else use URL.
         # This simple logic prefers Upload if both are present.
+        # Use url_from_textbox as primary source (persists after refresh), fallback to state
+        url = url_from_textbox.strip() if url_from_textbox else (url_from_state or "")
+        
         if upload is not None:
             mode = "Upload PDF"
         elif url:
@@ -518,7 +521,7 @@ with gr.Blocks(theme=theme, css=custom_css, title="Paper2Video") as app:
 
     generate_btn.click(
         fn=on_generate_click,
-        inputs=[file_upload, selected_arxiv_url, use_deep],
+        inputs=[file_upload, selected_arxiv_url, url_storage, use_deep],
         outputs=[status_log, video_player, json_debug_view]
     )
     

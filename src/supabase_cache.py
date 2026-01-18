@@ -136,7 +136,7 @@ class SupabaseVideoCache:
             import urllib.error
             
             req = urllib.request.Request(video_url, method='HEAD')
-            req.add_header('User-Agent', 'Paper2Video/1.0')
+            req.add_header('User-Agent', 'VisuArXiv/1.0')
             try:
                 response = urllib.request.urlopen(req, timeout=10)
                 if response.status == 200:
