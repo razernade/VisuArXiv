@@ -20,7 +20,7 @@ console = Console()
 # Supabase configuration
 SUPABASE_URL = "https://wnsgwijukvnfcpeuiugk.supabase.co/"
 # Use the SECRET key for storage operations (bypasses RLS)
-SUPABASE_KEY = "sb_secret_rQvoKrj7dqt3DU6Xp5sdNQ_Uo6fqM9H"
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 SUPABASE_BUCKET = "research-videos"
 # Note: For full write access, you may need to use the service role key
 # or configure RLS policies in Supabase for the storage bucket
