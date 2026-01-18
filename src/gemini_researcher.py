@@ -202,7 +202,7 @@ Return ONLY a valid JSON object following the schema in my instructions.
 
     def _standard_analysis(self, uploaded_file: types.File) -> dict:
         """Use standard Gemini model for faster analysis."""
-        console.print("[blue]Running standard analysis with Gemini 2.5 Pro...[/blue]")
+        console.print("[blue]Running standard analysis with Gemini 3 Flash...[/blue]")
         
         prompt = f"""
 {self.research_prompt}
